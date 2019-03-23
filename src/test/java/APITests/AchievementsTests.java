@@ -11,18 +11,18 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class UserTests {
+public class AchievementsTests {
 	
 	@Test
-	public void getUser() throws ClientProtocolException, IOException {
-		HttpUriRequest request = new HttpGet("http://" + Hooks.getIp() + "/vanhack/api/User");
+	public void getTask() throws ClientProtocolException, IOException {
+		HttpUriRequest request = new HttpGet("http://" + Hooks.getIp() + "/vanhack/api/task");
 		HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
 		Assert.assertEquals(HttpStatus.SC_OK, httpResponse.getStatusLine().getStatusCode());
 	}
 	
 	@Test
-	public void getNonExistingUser() throws ClientProtocolException, IOException {
-		HttpUriRequest request = new HttpGet("http://" + Hooks.getIp() + "/vanhack/api/User/asd");
+	public void getNonExistingTask() throws ClientProtocolException, IOException {
+		HttpUriRequest request = new HttpGet("http://" + Hooks.getIp() + "/vanhack/api/task/asd");
 		HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
 		Assert.assertEquals(HttpStatus.SC_OK, httpResponse.getStatusLine().getStatusCode());
 	}

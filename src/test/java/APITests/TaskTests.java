@@ -14,15 +14,8 @@ import org.junit.Test;
 public class TaskTests {
 	
 	@Test
-	public void getTask() throws ClientProtocolException, IOException {
-		HttpUriRequest request = new HttpGet("http://172.16.14.103/vanhack/api/task");
-		HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-		Assert.assertEquals(HttpStatus.SC_OK, httpResponse.getStatusLine().getStatusCode());
-	}
-	
-	@Test
-	public void getNonExistingTask() throws ClientProtocolException, IOException {
-		HttpUriRequest request = new HttpGet("http://172.16.14.103/vanhack/api/task/asd");
+	public void getAchievements() throws ClientProtocolException, IOException {
+		HttpUriRequest request = new HttpGet("http://" + Hooks.getIp() + "/vanhack/api/Achievement");
 		HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
 		Assert.assertEquals(HttpStatus.SC_OK, httpResponse.getStatusLine().getStatusCode());
 	}
